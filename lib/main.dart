@@ -55,7 +55,8 @@ class MyHomePage extends StatelessWidget {
     return SimpleDialog(
       contentPadding: EdgeInsets.zero,
       children: <Widget>[
-        Image.asset(kitten.imagePath),
+        Image.asset(kitten.imagePath,
+        fit: BoxFit.fill,),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -78,12 +79,16 @@ class MyHomePage extends StatelessWidget {
             context: context,
             builder: (context) => _dialogBuilder(context, _kittens[index]));
       },
-      child: Container(
-        padding: EdgeInsets.only(left: 16.0),
-        alignment: Alignment.centerLeft,
-        child: Text(
-          _kittens[index].name,
-          style: Theme.of(context).textTheme.headline,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text(
+            _kittens[index].name,
+            style: Theme.of(context).textTheme.headline,
+          ),
+        ]
         ),
       ),
     );
