@@ -52,17 +52,19 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key key}) : super(key: key);
 
   Widget _dialogBuilder(BuildContext context, Kitten kitten) {
+    ThemeData localTheme = Theme.of(context);
     return SimpleDialog(
       contentPadding: EdgeInsets.zero,
       children: <Widget>[
         Image.asset(kitten.imagePath,
-        fit: BoxFit.fill,),
+        fit: BoxFit.fill),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Text(kitten.name),
+              Text(kitten.name,
+              style: localTheme.textTheme.display1),
               Text('${kitten.age} years old!'),
               Text(kitten.description),
             ],
